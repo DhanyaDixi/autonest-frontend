@@ -2,98 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AutoNest - Car Service Made Easy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoNest | Car Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --primary: #0f172a;
-      --accent: #38bdf8;
-      --text-light: #f1f5f9;
-      --glass: rgba(255, 255, 255, 0.1);
-    }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--primary);
-      color: var(--text-light);
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
       scroll-behavior: smooth;
     }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    :root {
+      --bg-color: #0f2027;
+      --text-color: #fff;
+      --header-bg: rgba(0, 0, 0, 0.6);
+      --form-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode {
+      --bg-color: #f1f1f1;
+      --text-color: #111;
+      --header-bg: #ffffffcc;
+      --form-bg: #ffffff;
+    }
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      background-color: rgba(15, 23, 42, 0.9);
+      padding: 1.2rem 2rem;
+      background-color: var(--header-bg);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
     }
-    header img {
-      height: 50px;
+
+    .logo {
+      height: 60px;
     }
+
     nav a {
-      color: var(--text-light);
-      margin: 0 15px;
+      margin-left: 20px;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: color 0.3s;
     }
+
     nav a:hover {
-      color: var(--accent);
+      color: #00ffff;
+    }
+
+    .theme-toggle {
+      margin-left: 30px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      background: #00ffff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     section {
       padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
     }
 
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 10px;
+    #home h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
     }
 
-    .hero img.car {
-      width: 250px;
-      animation: slideCar 5s ease-in-out infinite;
+    .car-animation {
+      width: 280px;
+      margin-top: 20px;
+      animation: moveCar 5s ease-in-out infinite;
     }
 
-    @keyframes slideCar {
-      0% { transform: translateX(-300px); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateX(300px); opacity: 0; }
+    @keyframes moveCar {
+      0%   { transform: translateX(-200px); }
+      50%  { transform: translateX(100px); }
+      100% { transform: translateX(-200px); }
     }
 
-    .glass-card {
-      background: var(--glass);
-      border-radius: 16px;
-      padding: 30px;
+    form {
+      background: var(--form-bg);
       backdrop-filter: blur(10px);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      margin-top: 30px;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
     }
 
-    input, textarea, button {
+    input, textarea {
       width: 100%;
       padding: 12px;
-      margin: 8px 0;
-      border-radius: 8px;
+      margin: 10px 0;
       border: none;
+      border-radius: 8px;
       font-size: 1rem;
     }
 
     button {
-      background-color: var(--accent);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      background: #00ffff;
       color: #000;
       font-weight: bold;
       cursor: pointer;
@@ -104,91 +125,99 @@
       transform: scale(1.05);
     }
 
-    .dark-mode-toggle {
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: var(--accent);
-    }
-
     footer {
       text-align: center;
       padding: 20px;
+      background: var(--header-bg);
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: #aaa;
+    }
+
+    .contact {
+      line-height: 1.8;
+      font-size: 1.1rem;
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-    <img src="C:\logo\logo1.jpg" alt="AutoNest Logo" />
+    <img src="C:\AutoNestCode\autonest-frontend\public\logo1.jpg" alt="AutoNest Logo" class="logo" />
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#track">Track Issue</a>
+      <a href="#track">Track</a>
       <a href="#contact">Contact</a>
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Mode</button>
     </nav>
-    <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌓</div>
   </header>
 
-  <section id="home" class="hero">
+  <section id="home">
     <h1>Welcome to AutoNest</h1>
-    <p>Your trusted car service & diagnostics partner.</p>
-    <img src="C:\logo\car.jpg" class="car" alt="Moving Car Animation" />
+    <p>Your trusted car service partner</p>
+    <img src="C:\AutoNestCode\autonest-frontend\public\car.jpg" alt="Moving Car" class="car-animation" />
   </section>
 
   <section id="about">
     <h2>About AutoNest</h2>
-    <p>AutoNest is a car diagnostics and repair hub led by a passionate expert who handles both software-based console issues and practical mechanical fixes. Whether it's a dashboard glitch or a real hardware concern, AutoNest ensures every customer drives away with a smile.</p>
+    <p>AutoNest is built on the passion and dedication of Dixit, who blends technical expertise with practical hands-on car repair services. Whether using advanced diagnostics through a laptop or solving physical issues, we deliver excellence every time.</p>
   </section>
 
   <section id="services">
     <h2>Our Services</h2>
-    <ul>
-      <li>✅ Laptop Diagnostics via OBD Console</li>
-      <li>✅ Hands-on Mechanical Repairs</li>
-      <li>✅ Spare Parts Replacement</li>
-      <li>✅ Infotainment & ECU Issues</li>
+    <ul style="list-style: none; padding: 0; line-height: 2; font-size: 1.1rem;">
+      <li>🔧 Hands-on car repairs</li>
+      <li>💻 Laptop-based diagnostics</li>
+      <li>📦 Spare parts ordering</li>
+      <li>🧾 Service status tracking</li>
     </ul>
   </section>
 
   <section id="track">
     <h2>Track Your Issue</h2>
-    <div class="glass-card">
-      <form onsubmit="event.preventDefault(); alert('Tracking feature coming soon!')">
-        <input type="tel" placeholder="Enter your phone number" required />
-        <button type="submit">Track Issue</button>
-      </form>
-    </div>
+    <form action="http://localhost:3000/track" method="GET">
+      <input type="text" name="phone" placeholder="Enter your phone number" required />
+      <button type="submit">Track</button>
+    </form>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <div class="glass-card">
-      <p>📞 <strong>Deekshith N:</strong> 9663909036</p>
-      <p>📧 <strong>Email:</strong> <a href="mailto:dpolali@gmail.com">dpolali@gmail.com</a></p>
-      <form id="reportForm" method="POST" action="http://localhost:3000/report">
-        <input name="name" type="text" placeholder="Your Name" required />
-        <input name="phone" type="tel" placeholder="Phone Number" required />
-        <input name="date" type="date" required />
-        <textarea name="issue" placeholder="Describe the issue" required></textarea>
-        <input name="image" type="file" accept="image/*" />
-        <button type="submit">Report Issue</button>
-      </form>
+    <div class="contact">
+      📞 Phone: 9663909036 <br />
+      📧 Email: dpolali@gmail.com
     </div>
   </section>
 
+  <section id="report">
+    <h2>Report an Issue</h2>
+    <form action="http://localhost:3000/report" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="phone" placeholder="Phone Number" required />
+      <textarea name="issue" rows="4" placeholder="Describe the issue..." required></textarea>
+      <input type="date" name="appointment" required />
+      <input type="file" name="image" accept="image/*" capture="environment" />
+      <button type="submit">Submit Issue</button>
+    </form>
+  </section>
+
   <footer>
-    &copy; 2025 AutoNest. All rights reserved.
+    &copy; 2025 AutoNest. All rights reserved. Crafted with ❤ for smarter car service.
   </footer>
 
-
   <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
     }
-  </script>
 
+    // Load theme on first visit
+    window.onload = () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    };
+  </script>
 </body>
 </html>
