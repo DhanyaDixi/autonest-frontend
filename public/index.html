@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoNest - Car Service Made Easy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #38bdf8;
+      --text-light: #f1f5f9;
+      --glass: rgba(255, 255, 255, 0.1);
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--primary);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 23, 42, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 50px;
+    }
+    nav a {
+      color: var(--text-light);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero img.car {
+      width: 250px;
+      animation: slideCar 5s ease-in-out infinite;
+    }
+
+    @keyframes slideCar {
+      0% { transform: translateX(-300px); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateX(300px); opacity: 0; }
+    }
+
+    .glass-card {
+      background: var(--glass);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-top: 30px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: var(--accent);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .dark-mode-toggle {
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="C:\logo\logo1.jpg" alt="AutoNest Logo" />
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#track">Track Issue</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌓</div>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Welcome to AutoNest</h1>
+    <p>Your trusted car service & diagnostics partner.</p>
+    <img src="C:\logo\car.jpg" class="car" alt="Moving Car Animation" />
+  </section>
+
+  <section id="about">
+    <h2>About AutoNest</h2>
+    <p>AutoNest is a car diagnostics and repair hub led by a passionate expert who handles both software-based console issues and practical mechanical fixes. Whether it's a dashboard glitch or a real hardware concern, AutoNest ensures every customer drives away with a smile.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>✅ Laptop Diagnostics via OBD Console</li>
+      <li>✅ Hands-on Mechanical Repairs</li>
+      <li>✅ Spare Parts Replacement</li>
+      <li>✅ Infotainment & ECU Issues</li>
+    </ul>
+  </section>
+
+  <section id="track">
+    <h2>Track Your Issue</h2>
+    <div class="glass-card">
+      <form onsubmit="event.preventDefault(); alert('Tracking feature coming soon!')">
+        <input type="tel" placeholder="Enter your phone number" required />
+        <button type="submit">Track Issue</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="glass-card">
+      <p>📞 <strong>Deekshith N:</strong> 9663909036</p>
+      <p>📧 <strong>Email:</strong> <a href="mailto:dpolali@gmail.com">dpolali@gmail.com</a></p>
+      <form id="reportForm" method="POST" action="http://localhost:3000/report">
+        <input name="name" type="text" placeholder="Your Name" required />
+        <input name="phone" type="tel" placeholder="Phone Number" required />
+        <input name="date" type="date" required />
+        <textarea name="issue" placeholder="Describe the issue" required></textarea>
+        <input name="image" type="file" accept="image/*" />
+        <button type="submit">Report Issue</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 AutoNest. All rights reserved.
+  </footer>
+
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+
+</body>
+</html>
